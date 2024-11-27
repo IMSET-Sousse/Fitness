@@ -1,134 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness Progress</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Fitness - Connexion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fonction de validation du formulaire de connexion
+        function validateLoginForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            
+            // Vérifier que l'email et le mot de passe sont non vides
+            if (email == "" || password == "") {
+                alert("Veuillez remplir tous les champs.");
+                return false;
+            }
+            // Vérifier le format de l'email
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!email.match(emailPattern)) {
+                alert("Veuillez entrer un email valide.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#">Fitness Progress</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tracking">Suivi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#goals">Objectifs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+    <div class="container py-5">
+        <h2 class="text-center">Connexion</h2>
+        <form onsubmit="return validateLoginForm()">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
             </div>
-        </div>
-    </nav>
-    <!-- Page d'accueil -->
-    <section id="home" class="bg-light text-center py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1 class="display-4">Bienvenue sur Fitness Progress</h1>
-                    <p class="lead">Suivez vos objectifs de remise en forme, visualisez vos progrès et recevez des recommandations personnalisées.</p>
-                    <a href="#tracking" class="btn btn-primary btn-lg">Commencer</a>
-                </div>
-                <div class="col-md-6">
-                    <img src="https://via.placeholder.com/500x300" alt="Fitness Image" class="img-fluid">
-                </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
             </div>
-        </div>
-    </section>
-
-    <!-- Page de suivi -->
-    <section id="tracking" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Suivi de vos Progrès</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <form>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="weight" class="form-label">Poids (kg)</label>
-                                <input type="number" class="form-control" id="weight">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="reps" class="form-label">Répétitions</label>
-                                <input type="number" class="form-control" id="reps">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-12">
-                                <label for="time" class="form-label">Temps (minutes)</label>
-                                <input type="number" class="form-control" id="time">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <img src="https://via.placeholder.com/500x300" alt="Progress Chart" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Page objectifs -->
-    <section id="goals" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">Vos Objectifs</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <label for="goalWeight" class="form-label">Poids Cible (kg)</label>
-                            <input type="number" class="form-control" id="goalWeight">
-                        </div>
-                        <div class="mb-3">
-                            <label for="weeklyGoal" class="form-label">Exercices Hebdomadaires</label>
-                            <input type="number" class="form-control" id="weeklyGoal">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <img src="https://via.placeholder.com/500x300" alt="Goals Image" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Page contact -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Contactez-nous</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="mb-3">
-                            <!-- <label for="message" class="form-label">Message</label> -->
-                            <textarea class="form-control" id="message" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <img src="https://via.placeholder.com/500x300" alt="Contact Image" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+        </form>
+        <p class="text-center mt-3">Pas encore inscrit ? <a href="signup.html">Créer un compte</a></p>
+    </div>
 </body>
 </html>
+
+
+  
+                 
+  
+                            
